@@ -1,0 +1,36 @@
+{
+  "name": "飞书妙计下载助手v1.0",
+  "description": "飞书妙计下载助手v1.0",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js",
+    "type": "module",
+    "run_at": "document_start"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://supermonkey.feishu.cn/minutes/*"],
+      "js": ["httpRequest.js","content.js"],
+      "all_frames": true,
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [ "storage","activeTab", "scripting", "background", "webRequest",  "cookies"],
+  "host_permissions": [ "https://supermonkey.feishu.cn/" ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/get_started16.png",
+      "32": "/images/get_started32.png",
+      "48": "/images/get_started48.png",
+      "128": "/images/get_started128.png"
+    }
+  },
+  "icons": {
+    "16": "/images/get_started16.png",
+    "32": "/images/get_started32.png",
+    "48": "/images/get_started48.png",
+    "128": "/images/get_started128.png"
+  }
+}
